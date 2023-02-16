@@ -1,0 +1,149 @@
+﻿@using Project.UI.Models.Auth
+@{
+    Layout = "/Views/Shared/_AdminLayout.cshtml";
+
+}
+@model AuthenticationViewModel
+
+<div class="middle-content container-xxl p-0">
+    <div class="secondary-nav">
+        <div class="breadcrumbs-container" data-page-heading="Analytics">
+            <header class="header navbar navbar-expand-sm">
+                <a href="javascript:void(0);" class="btn-toggle sidebarCollapse" data-placement="bottom">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </a>
+                <div class="d-flex breadcrumb-content">
+                    <div class="page-header">
+
+                        <div class="page-title">
+                        </div>
+
+                        <nav class="breadcrumb-style-one" aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#">Kullanıcılar</a></li>
+                                <li class="breadcrumb-item"><a href="#">Kullanıcı Detay</a></li>
+                            </ol>
+                        </nav>
+
+                    </div>
+                </div>
+
+            </header>
+        </div>
+    </div>
+
+    <div class="row mb-4 layout-spacing layout-top-spacing">
+        <div class="col-xxl-9 col-xl-12 col-lg-12 col-md-12 col-sm-12">
+
+            <div class="widget-content widget-content-area">
+                <div class="row">
+                    <h6>Genel Bilgiler</h6>
+                    <div class="col-lg-11 mx-auto">
+
+                        <div class="row">
+                            <div class="col-xl-2 col-lg-12 col-md-4">
+                                <div class="profile-image  mt-4 pe-md-4">
+                                    <div class="img-uploader-content">
+                                        <div class="img-uploader-content">
+                                            <input type="file" class="filepond"
+                                                   name="filepond" accept="image/png, image/jpeg, image/gif" />
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-xl-10 col-lg-12 col-md-8 mt-md-0 mt-4">
+                                <div class="form">
+
+                                    <div class="row">
+
+
+                                        <input style="display:none" id="id" placeholder="İsim" value="@Model.UserDetail.Id">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="firstName">İsim</label>
+                                                <input type="text" class="form-control mb-3" id="firstName" placeholder="İsim" value="@Model.UserDetail.FirstName">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="lastName">Soyisim</label>
+                                                <input type="text" class="form-control mb-3" id="lastName" placeholder="Soyisim" value="@Model.UserDetail.LastName">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="userName">Kullanıcı Adı</label>
+                                                <input type="text" class="form-control mb-3" id="userName" placeholder="Kullanıcı Adı" value="@Model.UserDetail.UserName">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="email">Email</label>
+                                                <input type="email" class="form-control mb-3" id="email" placeholder="Email" value="@Model.UserDetail.Email">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="password">Parola</label>
+                                                <input type="password" class="form-control mb-3" id="password" placeholder="Parola" value="00000000">
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <h6>Yetki Bilgileri</h6>
+                     
+                    <div class="col-lg-11 mx-auto mt-4">
+                        <table id="user-operation-claim-list" class="table dt-table-hover " style="width:100%" data-unique-id="id">
+                            <thead>
+
+                                <tr>
+                                    <th data-field="operationClaimName" data-align="center">Yetki adı</th>    
+                                    <th data-field="dateCreated" data-formatter="DateTimeFormatter" data-align="center">Oluşturma Tarihi</th>
+
+                                </tr>
+                            </thead>
+
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="col-xxl-3 col-xl-12 col-lg-12 col-md-12 col-sm-12 mt-xxl-0 mt-4">
+            <div class="widget-content widget-content-area ">
+                <div class="row">
+                    <button class="btn btn-success w-100" onclick="saveUpdatedUser()">Değişiklikleri Kaydet</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var userDetail =@Json.Serialize(@Model.UserDetail);
+    console.log(userDetail)
+
+</script>
+
+<script src="~/src/plugins/src/filepond/filepond.min.js"></script>
+<script src="~/src/plugins/src/filepond/FilePondPluginFileValidateType.min.js"></script>
+<script src="~/src/plugins/src/filepond/FilePondPluginImageExifOrientation.min.js"></script>
+<script src="~/src/plugins/src/filepond/FilePondPluginImagePreview.min.js"></script>
+<script src="~/src/plugins/src/filepond/FilePondPluginImageCrop.min.js"></script>
+<script src="~/src/plugins/src/filepond/FilePondPluginImageResize.min.js"></script>
+<script src="~/src/plugins/src/filepond/FilePondPluginImageTransform.min.js"></script>
+<script src="~/src/plugins/src/filepond/filepondPluginFileValidateSize.min.js"></script>
+<script src="~/src/assets/js/apps/authentication/userDetail.js"></script>

@@ -1,0 +1,16 @@
+﻿@using Project.UI.Models.Lesson
+@model LessonViewModel
+  
+@if (User.Identity.IsAuthenticated)
+{
+    
+   Layout = "/Views/Shared/_AdminLayout.cshtml";
+
+    <partial name="~/Views/Lesson/Partials/Admin/_LessonPostDetailAdminPartial.cshtml" />
+
+}
+else
+{
+    <partial name="~/Views/Lesson/Partials/Default/_LessonPostDetailPartial.cshtml" model="Model.LessonPostDetail" />
+
+}

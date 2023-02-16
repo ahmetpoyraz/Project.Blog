@@ -1,0 +1,17 @@
+C:\Users\ahmet\source\repos\Blog.Project\Project.Data\obj\Debug\net6.0\Project.Data.csproj.AssemblyReference.cache
+C:\Users\ahmet\source\repos\Blog.Project\Project.Data\obj\Debug\net6.0\Project.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ahmet\source\repos\Blog.Project\Project.Data\obj\Debug\net6.0\Project.Data.AssemblyInfoInputs.cache
+C:\Users\ahmet\source\repos\Blog.Project\Project.Data\obj\Debug\net6.0\Project.Data.AssemblyInfo.cs
+C:\Users\ahmet\source\repos\Blog.Project\Project.Data\obj\Debug\net6.0\Project.Data.csproj.CoreCompileInputs.cache
+C:\Users\ahmet\source\repos\Blog.Project\Project.Data\bin\Debug\net6.0\Project.Data.deps.json
+C:\Users\ahmet\source\repos\Blog.Project\Project.Data\bin\Debug\net6.0\Project.Data.dll
+C:\Users\ahmet\source\repos\Blog.Project\Project.Data\bin\Debug\net6.0\Project.Data.pdb
+C:\Users\ahmet\source\repos\Blog.Project\Project.Data\bin\Debug\net6.0\Project.Core.dll
+C:\Users\ahmet\source\repos\Blog.Project\Project.Data\bin\Debug\net6.0\Project.Entity.dll
+C:\Users\ahmet\source\repos\Blog.Project\Project.Data\bin\Debug\net6.0\Project.Core.pdb
+C:\Users\ahmet\source\repos\Blog.Project\Project.Data\bin\Debug\net6.0\Project.Entity.pdb
+C:\Users\ahmet\source\repos\Blog.Project\Project.Data\obj\Debug\net6.0\Project.Data.csproj.CopyComplete
+C:\Users\ahmet\source\repos\Blog.Project\Project.Data\obj\Debug\net6.0\Project.Data.dll
+C:\Users\ahmet\source\repos\Blog.Project\Project.Data\obj\Debug\net6.0\refint\Project.Data.dll
+C:\Users\ahmet\source\repos\Blog.Project\Project.Data\obj\Debug\net6.0\Project.Data.pdb
+C:\Users\ahmet\source\repos\Blog.Project\Project.Data\obj\Debug\net6.0\ref\Project.Data.dll

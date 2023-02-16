@@ -1,0 +1,75 @@
+﻿
+
+
+@using Project.Entity.Dtos.Lesson
+@model LessonDto
+
+<div class="row mb-4 layout-spacing layout-top-spacing">
+    <div class="col-xxl-9 col-xl-12 col-lg-12 col-md-12 col-sm-12">
+         
+        <div class="widget-content widget-content-area blog-create-section">
+            <table id="lesson-post-list" class="table dt-table-hover " style="width:100%" data-unique-id="id">
+                <thead>
+                    <tr>
+                        <th data-field="caption">Ders Konu</th>
+                        <th data-field="description">Ders Konu Açılama</th>
+                        <th data-field="dateCreated" data-formatter="DateTimeFormatter">Oluşturma Tarihi</th>
+                        <th data-field="id" data-formatter="deleteFormatter">İşlemler</th>
+
+                    </tr>
+                </thead>
+  
+            </table>
+        </div>
+    </div>
+
+    <div class="col-xxl-3 col-xl-12 col-lg-12 col-md-12 col-sm-12 mt-xxl-0 mt-4">
+        <div class="widget-content widget-content-area blog-create-section">
+            <div class="row">
+                <button type="button" class="btn btn-dark mb-2 me-4" id="lessonId" value=@Model.Id>
+                    @Model.Name
+                </button>
+                <button class="btn btn-success mb-2 me-4 btn-sm" onclick="showModal('lessonPostModal')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+                    <span class="btn-text-inner">Yeni Ders Konusu Ekle</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade inputForm-modal" id="lessonPostModal" tabindex="-1" role="dialog" aria-labelledby="inputFormModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header" id="inputFormModalLabel">
+                <h5 class="modal-title">Ders Konusu Ekle</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+            </div>
+            <div class="modal-body">
+                <form class="mt-0">
+                    <div class="form-group">
+                        <div class="input-group mb-3">
+
+                            <input type="text" class="form-control" placeholder="Ders Konu Adı" aria-label="lesson" id="lessonPostCaption">
+                        </div>
+                        <div class="input-group mb-3">
+
+                            <input type="text" class="form-control" placeholder="Ders Konu Açıklaması" aria-label="lesson" id="lessonPostDescription">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-light-danger mt-2 mb-2 btn-no-effect" data-bs-dismiss="modal">Vazgeç</button>
+                <button type="submit" class="btn btn-primary mt-2 mb-2 btn-no-effect" onclick="saveLessonPost()">Kaydet</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var siteUrl ="https://localhost:7253";
+
+</script>
+<script src="~/src/assets/js/apps/lesson/posts.js"></script>

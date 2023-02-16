@@ -1,0 +1,47 @@
+﻿@using Project.Entity.Dtos.Lesson
+@model LessonPostDto
+
+<link rel="stylesheet" type="text/css" href="~/src/assets/css/dark/apps/blog-post.css">
+<link rel="stylesheet" type="text/css" href="~/src/assets/css/light/apps/blog-post.css">
+
+<style>
+    .single-post-content img {
+        max-width: 100%;
+    }
+</style>
+<div class="middle-content container-xxl p-0">
+    <div class="page-meta">
+        <nav class="breadcrumb-style-one" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Dersler</a></li>
+                <li class="breadcrumb-item"><a href="#">Ders İçerik</a></li>
+                <li class="breadcrumb-item active" aria-current="page">@Model.Caption</li>
+            </ol>
+        </nav>
+    </div>
+    <div class="row layout-top-spacing">
+
+        <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-4">
+
+            <div class="single-post-content">
+                <div class="post-header">
+
+                    <div class="post-title">
+                        <h1 class="mb-0">@Model.Caption</h1>
+                    </div>
+
+                </div>
+                <br />
+                @if (!String.IsNullOrEmpty(Model.Text))
+                {
+
+                    @Html.Raw(Model.Text)
+                }
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>

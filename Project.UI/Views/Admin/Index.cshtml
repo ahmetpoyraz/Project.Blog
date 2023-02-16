@@ -1,0 +1,57 @@
+﻿@using System.Security.Claims
+@{
+       Layout = "/Views/Shared/_AdminLayout.cshtml";
+
+    var userName = User.Claims.Where(c => c.Type == ClaimTypes.Name).Select(c => c.Value).SingleOrDefault();
+
+}
+
+<div class="middle-content container-xxl p-0">
+
+    <div class="secondary-nav">
+        <div class="breadcrumbs-container" data-page-heading="Analytics">
+            <header class="header navbar navbar-expand-sm">
+                <a href="javascript:void(0);" class="btn-toggle sidebarCollapse" data-placement="bottom">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </a>
+                <div class="d-flex breadcrumb-content">
+                    <div class="page-header">
+
+                        <div class="page-title">
+                        </div>
+
+                        <nav class="breadcrumb-style-one" aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#">Admin</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Giriş</li>
+                            </ol>
+                        </nav>
+
+                    </div>
+                </div>
+
+            </header>
+        </div>
+    </div>
+
+    <div class="row layout-top-spacing">
+
+        <div class="info-box-1 color-2" style="max-width:100%">
+            <div class="info-box-1-icon-wrapper">
+                <div class="info-box-1-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-coffee"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
+                </div>
+            </div>
+            <div class="info-box-1-content-wrapper">
+                <h3 class="info-box-1-title">Hoşgeldin @userName !</h3>
+                <div class="info-box-1-content">Tüm işlemleri bu panel üzerinden görüntüleyebilirsin. </div>
+            </div>
+            <a class="info-box-1-button" href="#">@DateTime.Now.ToString("MMMM dd") </a>
+        </div>
+
+        <div class="col-md-12">
+        </div>
+
+    </div>
+
+</div>

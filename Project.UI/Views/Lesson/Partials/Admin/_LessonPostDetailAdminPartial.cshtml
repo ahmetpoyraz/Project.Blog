@@ -1,0 +1,152 @@
+﻿
+
+<div class="middle-content container-xxl p-0">
+    <div class="secondary-nav">
+        <div class="breadcrumbs-container" data-page-heading="Analytics">
+            <header class="header navbar navbar-expand-sm">
+                <a href="javascript:void(0);" class="btn-toggle sidebarCollapse" data-placement="bottom">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </a>
+                <div class="d-flex breadcrumb-content">
+                    <div class="page-header">
+
+                        <div class="page-title">
+                        </div>
+
+                        <nav class="breadcrumb-style-one" aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#">Dersler</a></li>
+                                <li class="breadcrumb-item"><a href="#">Ekle veya Güncelle</a></li>
+                            </ol>
+                        </nav>
+
+                    </div>
+                </div>
+
+            </header>
+        </div>
+    </div>
+
+    <div class="row mb-4 layout-spacing layout-top-spacing">
+        <div class="col-xxl-9 col-xl-12 col-lg-12 col-md-12 col-sm-12">
+
+            <div class="widget-content widget-content-area blog-create-section">
+                <div style="display:none">
+
+                    <input type="number" class="form-control" id="lessonPostId" value=@Model.LessonPostDetail.Id>
+                    <input type="number" class="form-control" id="lessonId" value=@Model.LessonPostDetail.LessonId>
+
+                </div>
+                <div class="row mb-4">
+                    <div class="col-sm-12">
+
+                        <input type="text" class="form-control" id="lessonPostCaption" placeholder="Ders İçerik Başlığı">
+
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col-sm-12">
+
+                        <input type="text" class="form-control" id="lessonPostDescription" placeholder="Ders İçerik Açıklama">
+
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-sm-12">
+                        <label>İçerik</label>
+                        <div id="lesson-text"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-xxl-3 col-xl-12 col-lg-12 col-md-12 col-sm-12 mt-xxl-0 mt-4">
+            <div class="widget-content widget-content-area ">
+                <div class="row">
+                    <label class="text-center">Dosya Ekle</label>
+                    <div class="col-xxl-12 col-sm-4 col-12 mx-auto">
+                        <div class="multiple-file-upload">
+                            <input type="file"
+                                   class="filepond file-upload-multiple"
+                                   name="filepond"
+                                   multiple
+                                   data-allow-reorder="true"
+                                   data-max-file-size="3MB"
+                                   data-max-files="3">
+                        </div>
+                        <br />
+                        <button class="btn btn-warning w-100" onclick="saveLessonPostFile()">Dosyaları Kaydet</button>
+                        <br />
+                        <br />
+                        <button class="btn btn-success w-100" onclick="saveLessonPost()">Değişiklikleri Kaydet</button>
+
+                    </div>
+                </div>
+            </div>
+
+            <br />
+            <div class="widget-content widget-content-area ">
+                <div class="row ">
+                    <label class="text-center">Dosya Listele</label>
+                    <table id="lesson-post-file-list" class="table-responsive dt-table-hover  " style=" max-height:40%; " data-unique-id="id">
+                        <thead>
+                            <tr>
+
+                                <th data-field="fileName" data-width="500">Dosya Adı</th>
+                                <th data-field="id" data-formatter="deleteFormatter">Sil</th>
+
+                            </tr>
+                        </thead>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="modal fade inputForm-modal" id="lessonModal" tabindex="-1" role="dialog" aria-labelledby="inputFormModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header" id="inputFormModalLabel">
+                <h5 class="modal-title">Ders Ekle</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+            </div>
+            <div class="modal-body">
+                <form class="mt-0">
+                    <div class="form-group">
+                        <div class="input-group mb-3">
+
+                            <input type="text" class="form-control" placeholder="Ders Adı" aria-label="lesson" id="lessonName">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-light-danger mt-2 mb-2 btn-no-effect" data-bs-dismiss="modal">Vazgeç</button>
+                <button type="submit" class="btn btn-primary mt-2 mb-2 btn-no-effect" onclick="saveLesson()">Kaydet</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="~/src/plugins/src/editors/quill/quill.js"></script>
+<script src="~/src/plugins/src/filepond/filepond.min.js"></script>
+<script src="~/src/plugins/src/filepond/FilePondPluginFileValidateType.min.js"></script>
+<script src="~/src/plugins/src/filepond/FilePondPluginImageExifOrientation.min.js"></script>
+<script src="~/src/plugins/src/filepond/FilePondPluginImagePreview.min.js"></script>
+<script src="~/src/plugins/src/filepond/FilePondPluginImageCrop.min.js"></script>
+<script src="~/src/plugins/src/filepond/FilePondPluginImageResize.min.js"></script>
+<script src="~/src/plugins/src/filepond/FilePondPluginImageTransform.min.js"></script>
+<script src="~/src/plugins/src/filepond/filepondPluginFileValidateSize.min.js"></script>
+<script src="~/src/plugins/src/tagify/tagify.min.js"></script>
+<script src="~/src/assets/js/apps/lesson/postDetails.js"></script>

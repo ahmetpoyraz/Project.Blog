@@ -1,0 +1,24 @@
+﻿
+<div class="row">
+
+    @foreach (var item in Model.LessonList)
+    {
+
+        <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6 mb-4">
+            <a asp-controller="Lesson" asp-action="Posts" asp-route-id="@item.Id" class="card style-2 mb-md-0 mb-4">
+                <img src="~/src/assets/img/lesson.jpg" class="card-img-top" alt="...">
+                <div class="card-body px-0 pb-0">
+
+                    <h5 class="card-title mb-3">@item.Name</h5>
+                    <div class="media mt-4 mb-0 pt-1">
+                        <img src="~/src/assets/img/profile-5.jpeg" class="card-media-image me-3" alt="">
+                        <div class="media-body">
+                            <h4 class="media-heading mb-1">@item.CreatedUserFirstName @item.CreatedUserLastName</h4>
+                            <p class="media-text">@item.DateCreated.ToString("dd MMMM yyyy")</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    }
+</div>

@@ -1,0 +1,148 @@
+﻿@{
+       Layout = "/Views/Shared/_AdminLayout.cshtml";
+
+}<div class="middle-content container-xxl p-0">
+    <div class="secondary-nav">
+        <div class="breadcrumbs-container" data-page-heading="Analytics">
+            <header class="header navbar navbar-expand-sm">
+                <a href="javascript:void(0);" class="btn-toggle sidebarCollapse" data-placement="bottom">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </a>
+                <div class="d-flex breadcrumb-content">
+                    <div class="page-header">
+
+                        <div class="page-title">
+                        </div>
+
+                        <nav class="breadcrumb-style-one" aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#">Kullanıcılar</a></li>
+                            </ol>
+                        </nav>
+
+                    </div>
+                </div>
+
+            </header>
+        </div>
+    </div>
+<div class="row mb-4 layout-spacing layout-top-spacing">
+    <div class="col-xxl-9 col-xl-12 col-lg-12 col-md-12 col-sm-12">
+
+        <div class="widget-content widget-content-area blog-create-section">
+          
+            <table id="user-list" class="table dt-table-hover " style="width:100%" data-unique-id="id">
+                <thead>
+
+                    <tr>
+                        <th data-field="firstName">İsim</th>
+                        <th data-field="lastName">Soyisim</th>
+                        <th data-field="userName">Kullanıcı Adı</th>
+                        <th data-field="email">Email</th>
+                        <th data-field="profilePhoto" data-formatter="imageFormatter">Profil Fotoğrafı</th>
+                        <th data-field="dateCreated" data-formatter="DateTimeFormatter">Oluşturma Tarihi</th>
+                        <th data-field="id" data-formatter="deleteFormatter">İşlemler</th>
+
+                    </tr>
+                </thead>
+
+            </table>
+        </div>
+    </div>
+
+    <div class="col-xxl-3 col-xl-12 col-lg-12 col-md-12 col-sm-12 mt-xxl-0 mt-4">
+        <div class="widget-content widget-content-area blog-create-section">
+            <div class="row">
+
+                <button class="btn btn-success mb-2 me-4 btn-sm" onclick="showModal('userModal')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+                    <span class="btn-text-inner">Yeni Kullanıcı Ekle</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="modal fade inputForm-modal" id="userModal" tabindex="-1" role="dialog" aria-labelledby="inputFormModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header" id="inputFormModalLabel">
+                <h5 class="modal-title" id="title">Kullanıcı Ekle</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-11 mx-auto">
+                        <div class="row">
+                            <div class="col-xl-2 col-lg-12 col-md-4">
+                                <div class="profile-image  mt-4 pe-md-4">
+                                    <div class="img-uploader-content">
+                                        <div class="img-uploader-content">
+                                            <input type="file" class="filepond"
+                                                   name="filepond" accept="image/png, image/jpeg, image/gif" />
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-xl-10 col-lg-12 col-md-8 mt-md-0 mt-4">
+                                <div class="form">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="firstName">İsim</label>
+                                                <input type="text" class="form-control mb-3" id="firstName" placeholder="İsim">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="lastName">Soyisim</label>
+                                                <input type="text" class="form-control mb-3" id="lastName" placeholder="Soyisim">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="userName">Kullanıcı Adı</label>
+                                                <input type="text" class="form-control mb-3" id="userName" placeholder="Kullanıcı Adı">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="email">Email</label>
+                                                <input type="email" class="form-control mb-3" id="email" placeholder="Email">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="password">Parola</label>
+                                                <input type="password" class="form-control mb-3" id="password" placeholder="Parola">
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-light-danger mt-2 mb-2 btn-no-effect" data-bs-dismiss="modal">Vazgeç</button>
+                <button id="modal-submit" type="submit" class="btn btn-primary mt-2 mb-2 btn-no-effect" onclick="saveUser()">Kaydet</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/src/plugins/src/filepond/filepond.min.js"></script>
+<script src="~/src/plugins/src/filepond/FilePondPluginFileValidateType.min.js"></script>
+<script src="~/src/plugins/src/filepond/FilePondPluginImageExifOrientation.min.js"></script>
+<script src="~/src/plugins/src/filepond/FilePondPluginImagePreview.min.js"></script>
+<script src="~/src/plugins/src/filepond/FilePondPluginImageCrop.min.js"></script>
+<script src="~/src/plugins/src/filepond/FilePondPluginImageResize.min.js"></script>
+<script src="~/src/plugins/src/filepond/FilePondPluginImageTransform.min.js"></script>
+<script src="~/src/plugins/src/filepond/filepondPluginFileValidateSize.min.js"></script>
+<script src="~/src/assets/js/apps/authentication/userList.js"></script>
